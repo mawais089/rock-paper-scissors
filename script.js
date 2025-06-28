@@ -41,29 +41,30 @@ function playGame() {
     function playRound(humanChoice, computerChoice) {
 
         if (String(humanChoice).toLowerCase() === "rock" && computerChoice === "scissors") {
-            console.log(`+1 Rock crashes Scissors.`)
-            humanScore += 1
+            humanScore += 1;
+            alert(`+1 YourScore = ${humanScore}`);
         }
         else if (String(humanChoice).toLowerCase() === "scissors" && computerChoice === "rock") {
-            console.log("Rock crashes Scissors.")
-            computerScore += 1
+            computerScore+=1;
+            alert(`+1 ComputerScore = ${computerScore}`);
         }
         else if (String(humanChoice).toLowerCase() === "paper" && computerChoice === "rock") {
-            console.log("+1 Paper covers Rock.")
-            humanScore += 1
+            humanScore+=1;
+            alert(`+1 YourScore = ${humanScore}`);
         }
         else if (String(humanChoice).toLowerCase() === "rock" && computerChoice === "paper") {
-            console.log("Paper Covers Rock.")
-            computerScore += 1
+            computerScore+=1;
+            alert(`+1 ComputerScore = ${computerScore}`);
         }
         else if (String(humanChoice).toLowerCase() === "scissors" && computerChoice === "paper") {
-            console.log("+1 Scissors cuts Paper.")
-            humanScore += 1
+            humanScore+=1;
+            alert(`+1 YourScore = ${humanScore}`);
         }
         else if (String(humanChoice).toLowerCase() === "paper" && computerChoice === "scissors") {
-            console.log("Scissors cuts Paper.")
-            computerScore += 1
-        } else {
+            computerScore+=1;
+            alert(`+1 ComputerScore = ${computerScore}`);
+        }
+        else {
             console.log("Draw! Lets Play again.");
         }
     }
@@ -72,40 +73,40 @@ function playGame() {
     computerSelection = getComputerChoice();
 
     playRound(humanSelection, computerSelection);
-    console.log(`Your Choice ${humanSelection} - Computer Choice ${computerSelection}`);
+    alert(`Your Choice ${humanSelection} - Computer Choice ${computerSelection}`);
 
     humanSelection = getUserChoice();
     computerSelection = getComputerChoice();
 
     playRound(humanSelection, computerSelection);
-    console.log(`Your Choice ${humanSelection} - Computer Choice ${computerSelection}`);
+    alert(`Your Choice ${humanSelection} - Computer Choice ${computerSelection}`);
 
     humanSelection = getUserChoice();
     computerSelection = getComputerChoice();
 
     playRound(humanSelection, computerSelection);
-    console.log(`Your Choice ${humanSelection} - Computer Choice ${computerSelection}`);
+    alert(`Your Choice ${humanSelection} - Computer Choice ${computerSelection}`);
 
     humanSelection = getUserChoice();
     computerSelection = getComputerChoice();
 
     playRound(humanSelection, computerSelection);
-    console.log(`Your Choice ${humanSelection} - Computer Choice ${computerSelection}`);
+    alert(`Your Choice ${humanSelection} - Computer Choice ${computerSelection}`);
 
     humanSelection = getUserChoice();
     computerSelection = getComputerChoice();
 
     playRound(humanSelection, computerSelection);
-    console.log(`Your Choice ${humanSelection} - Computer Choice ${computerSelection}`);
+    alert(`Your Choice ${humanSelection} - Computer Choice ${computerSelection}`);
 
     if (humanScore > computerScore) {
-        console.log(`You are the Winner! YourScore ${humanScore} - ComputerScore ${computerScore}`)
+        alert(`You are the Winner! YourScore ${humanScore} - ComputerScore ${computerScore}`)
     }
-    else if(humanScore === computerScore){
-        console.log(`Draw! YourScore ${humanScore} - ComputerScore ${computerScore}`)
+    else if (humanScore === computerScore) {
+        alert(`Draw! YourScore ${humanScore} - ComputerScore ${computerScore}`)
     }
     else {
-        console.log(`You Lose! Computer is the Winner! YourScore ${humanScore} - ComputerScore ${computerScore}`)
+        alert(`You Lose! Computer is the Winner! YourScore ${humanScore} - ComputerScore ${computerScore}`)
     }
 
 }
