@@ -1,3 +1,6 @@
+let userScore = document.querySelectorAll('.results');
+let computerScore =  
+
 function getComputerChoice() {
 
     let randomNum = Math.floor(Math.random() * 3)
@@ -15,23 +18,6 @@ function getComputerChoice() {
     }
 
 }
-function getUserChoice() {
-
-    let userChoice = prompt("Enter Your Choice", "")
-
-    if (userChoice.toLowerCase() === "rock") {
-        return "rock"
-    }
-
-    else if (userChoice.toLowerCase() === "paper") {
-        return "paper"
-    }
-
-    else if (userChoice.toLowerCase() === "scissors") {
-        return "scissors"
-    }
-}
-
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
@@ -41,73 +27,52 @@ function playGame() {
     function playRound(humanChoice, computerChoice) {
 
         if (String(humanChoice).toLowerCase() === "rock" && computerChoice === "scissors") {
-            humanScore += 1;
-            alert(`+1 YourScore = ${humanScore}`);
+            console.log(`+1 Rock crashes Scissors.`)
+            humanScore += 1
         }
         else if (String(humanChoice).toLowerCase() === "scissors" && computerChoice === "rock") {
-            computerScore+=1;
-            alert(`+1 ComputerScore = ${computerScore}`);
+            console.log("Rock crashes Scissors.")
+            computerScore += 1
         }
         else if (String(humanChoice).toLowerCase() === "paper" && computerChoice === "rock") {
-            humanScore+=1;
-            alert(`+1 YourScore = ${humanScore}`);
+            console.log("+1 Paper covers Rock.")
+            humanScore += 1
         }
         else if (String(humanChoice).toLowerCase() === "rock" && computerChoice === "paper") {
-            computerScore+=1;
-            alert(`+1 ComputerScore = ${computerScore}`);
+            console.log("Paper Covers Rock.")
+            computerScore += 1
         }
         else if (String(humanChoice).toLowerCase() === "scissors" && computerChoice === "paper") {
-            humanScore+=1;
-            alert(`+1 YourScore = ${humanScore}`);
+            console.log("+1 Scissors cuts Paper.")
+            humanScore += 1
         }
         else if (String(humanChoice).toLowerCase() === "paper" && computerChoice === "scissors") {
-            computerScore+=1;
-            alert(`+1 ComputerScore = ${computerScore}`);
-        }
-        else {
+            console.log("Scissors cuts Paper.")
+            computerScore += 1
+        } else {
             console.log("Draw! Lets Play again.");
         }
     }
 
-    humanSelection = getUserChoice();
-    computerSelection = getComputerChoice();
+    const selections = document.querySelectorAll('.selection');
 
-    playRound(humanSelection, computerSelection);
-    alert(`Your Choice ${humanSelection} - Computer Choice ${computerSelection}`);
+    selections.forEach(selectionButton => {
+        selectionButton.addEventListener('click', (e) => {
 
-    humanSelection = getUserChoice();
-    computerSelection = getComputerChoice();
+            const targetSelection = e.target.id;
 
-    playRound(humanSelection, computerSelection);
-    alert(`Your Choice ${humanSelection} - Computer Choice ${computerSelection}`);
-
-    humanSelection = getUserChoice();
-    computerSelection = getComputerChoice();
-
-    playRound(humanSelection, computerSelection);
-    alert(`Your Choice ${humanSelection} - Computer Choice ${computerSelection}`);
-
-    humanSelection = getUserChoice();
-    computerSelection = getComputerChoice();
-
-    playRound(humanSelection, computerSelection);
-    alert(`Your Choice ${humanSelection} - Computer Choice ${computerSelection}`);
-
-    humanSelection = getUserChoice();
-    computerSelection = getComputerChoice();
-
-    playRound(humanSelection, computerSelection);
-    alert(`Your Choice ${humanSelection} - Computer Choice ${computerSelection}`);
-
-    if (humanScore > computerScore) {
-        alert(`You are the Winner! YourScore ${humanScore} - ComputerScore ${computerScore}`)
-    }
-    else if (humanScore === computerScore) {
-        alert(`Draw! YourScore ${humanScore} - ComputerScore ${computerScore}`)
-    }
-    else {
-        alert(`You Lose! Computer is the Winner! YourScore ${humanScore} - ComputerScore ${computerScore}`)
-    }
-
+            switch (targetSelection) {
+                case "rock":
+                    playRound(targetSelection, getComputerChoice());
+                    break;
+                case "paper":
+                    playRound(targetSelection, getComputerChoice());
+                    break;
+                case "scissors":
+                    playRound(targetSelection, getComputerChoice());
+                    break;
+            }
+        })
+    })
 }
 playGame();
